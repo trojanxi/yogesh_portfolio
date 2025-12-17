@@ -1,0 +1,28 @@
+pipeline {
+  agent { label 'windows' }
+
+  stages {
+    stage('Install deps') {
+      steps {
+        bat 'npm install'
+      }
+    }
+    stage('Build') {
+      steps {
+        bat 'npm run build'
+      }
+    }
+    stage('Test') {
+      steps {
+        bat 'npm test -- --watch=false'
+      }
+    }
+    stage('Checkout') {
+  steps {
+    git url: 'https://github.com/lcrank00/portfolio.git',
+        branch: 'main',
+        credentialsId: 'github-lcrank00'
+  }
+}
+  }
+}
