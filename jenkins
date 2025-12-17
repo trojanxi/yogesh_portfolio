@@ -19,9 +19,9 @@ pipeline {
     }
     stage('Checkout') {
   steps {
-    git url: 'https://github.com/lcrank00/portfolio.git',
+    git url: 'https://github.com/trojanxi/yogesh_portfolio.git',
         branch: 'main',
-        credentialsId: 'github-lcrank00'
+        credentialsId: 'trojanxi-portfolio'
   }
 }
   }
